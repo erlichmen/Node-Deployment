@@ -55,7 +55,7 @@ checkoutWorkTree = function (callback) {
 runJakefile = function (callback) {
 	
 	console.log("\n|---- Work tree checked out, running jakefile");
-	var jake = spawn("jake", ["-C", "/tmp/" + tempDirName]);
+	var jake = spawn("jake", [], {cwd: "/tmp/" + tempDirName});
 	
 	jake.stdout.on('data', function (data) {
 		process.stdout.write(data);
